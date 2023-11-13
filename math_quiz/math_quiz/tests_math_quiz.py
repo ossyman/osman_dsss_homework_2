@@ -1,5 +1,5 @@
 import unittest
-from math_quiz import function_A, function_B, function_C
+from math_quiz import Random_number as function_A, Random_operator as function_B, Arthmetic_operation as function_C
 
 
 class TestMathGame(unittest.TestCase):
@@ -14,16 +14,23 @@ class TestMathGame(unittest.TestCase):
 
     def test_function_B(self):
         # TODO
-        pass
+        rand_op = function_B()
+        self.assertIn(rand_op,'+-*','You have entered an invalid character, please enter a valid operator')
+        # pass
 
     def test_function_C(self):
             test_cases = [
                 (5, 2, '+', '5 + 2', 7),
+                (8,10,'-','8 - 10', -2),
+                (5,5,'*','5 * 5', 25),
                 ''' TODO add more test cases here '''
             ]
 
             for num1, num2, operator, expected_problem, expected_answer in test_cases:
                 # TODO
+                actual_problem,actual_answer = function_C(num1,num2,operator) 
+                self.assertEqual(expected_problem,actual_problem)
+                self.assertEqual(expected_answer,actual_answer)
                 pass
 
 if __name__ == "__main__":
